@@ -5,16 +5,15 @@ import * as yup from "yup";
 
 import logo from './assets/logo.png'
 import './App.css'
-import { useState } from 'react';
 
 const schema = yup.object({
   name: yup.string().required(),
-  cpf: yup.string().required(),
+  cpf: yup.string().cpf().required(),
   email: yup.string().email().required(),
-  birthdate: yup.string().required(),
-  genre: yup.string().required(),
-  password: yup.string().required(),
-  confirmpassword: yup.string().required(),
+  birthdate: yup.string().birthdate().required(),
+  genre: yup.string().genre().required(),
+  password: yup.string().min().required(),
+  confirmpassword: yup.string().confirmpassword().required(),
 }).required();
 
 
