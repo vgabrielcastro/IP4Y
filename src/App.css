@@ -38,7 +38,7 @@ label {
   padding: 64px;
   font: 1em Ubuntu Mono, monospace;
   color: rgb(255, 255, 255);
-  gap: 15px;
+  gap: 13px;
 }
 
 input {
@@ -56,4 +56,10 @@ button {
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
+}
+
+span {
+  color: red;
+  position: absolute;
+  margin-top: 50px;
 }
