@@ -38,33 +38,34 @@ function App() {
       <label>
         Nome
         <input {...register("name", { required: true })} />
-        <span> O nome é obrigatório</span>
+        {errors.name && <span> O nome é obrigatório</span>}
 
         CPF
         <input {...register("cpf")} />
-        <span> O CPF é obrigatório</span>
+        {errors.name && <span> O CPF é obrigatório</span>}
 
         E-Mail
         <input {...register("email")} />
-        <span> O e-mail é obrigatório</span>
+        {errors.name && <span> O e-mail é obrigatório</span>}
 
         Data de Nascimento
         <input {...register("birthdate")} />
-        <span> A data de nascimento é obrigatória</span>
+        {errors.name && <span> A data de nascimento é obrigatória</span>}
             
         Gênero
-        <option type="text" name="gênero" placeholder="Gênero"></option>
-        <option value="Masculino">Masculino</option>
-        <option value="Feminino">Feminino</option>
-        <option value="Outros">Outros</option>
+          <select {...register("gender")}>
+            <option option value="female">Feminino</option>
+            <option value="male">Masculino</option>
+            <option value="other">Outros</option>
+          </select>
             
         Senha
         <input {...register("password")} />
-        <span> A senha é obrigatória</span>
+        {errors.name && <span> A senha é obrigatória</span>}
             
         Confirmar Senha
         <input {...register("confirmpassword")} />
-        <span> A confirmação de senha é obrigatória</span>
+        {errors.name && <span> A confirmação de senha é obrigatória</span>}
             
         <button type="submit">Cadastrar</button>
 
