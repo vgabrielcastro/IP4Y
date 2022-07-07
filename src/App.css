@@ -58,6 +58,11 @@ button {
   cursor: pointer;
 }
 
+.cancel {
+  background-color: rgb(73, 230, 25);
+
+}
+
 span {
   color: red;
 }

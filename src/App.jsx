@@ -7,22 +7,25 @@ import logo from './assets/logo.png'
 import './App.css'
 
 const schema = yup.object({
-  name: yup.string().required(),
-  cpf: yup.string().cpf().required(),
-  email: yup.string().email().required(),
-  birthdate: yup.string().birthdate().required(),
-  genre: yup.string().genre().required(),
-  password: yup.string().min().required(),
-  confirmpassword: yup.string().confirmpassword().required(),
+  name: yup.string().required("O nome é obrigatório"),
+  cpf: yup.string().required("O CPF é obrigatório"),
+  email: yup.string().email().required("O email é obrigatório"),
+  birthdate: yup.string().required("A data de nascimento é obrigatória"),
+  password: yup.string().min(6, "A senha deve ser maior que 6 caracteres").required("O senha é obrigatório"),
+  confirmpassword: yup.string().required("Confirmar a senha é obrigatorio").oneOf([yup.ref("password")], "As senhas devem ser iguais"),
 }).required();
 
 
 function App() {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit, watch, formState: { errors } } = useForm({
+    resolver: yupResolver(schema)
+  });
 
   function onSubmit(userata) {
     console.log(userata);
   }
+
+  console.log(errors);
 
   return (
     <div className="App">
@@ -52,10 +55,10 @@ function App() {
         {errors.name && <span> A data de nascimento é obrigatória</span>}
             
         Gênero
-          <select {...register("gender")}>
-            <option option value="female">Feminino</option>
-            <option value="male">Masculino</option>
-            <option value="other">Outros</option>
+          <select {...register("Gênero")}>
+            <option option value="Feminino">Feminino</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Outros">Outros</option>
           </select>
             
         Senha
@@ -67,6 +70,7 @@ function App() {
         {errors.name && <span> A confirmação de senha é obrigatória</span>}
             
         <button type="submit">Cadastrar</button>
+        <button className="cancel"  type="Reset">Cancelar</button>
 
           </label>
         </form>
