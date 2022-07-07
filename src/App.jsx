@@ -18,7 +18,7 @@ function App() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className='flex'>
         <img src={logo} alt="logo" />
-        <p>Formulario IP4Y</p>
+        <p>Teste Front-End</p>
       </div> 
 
       <label>
