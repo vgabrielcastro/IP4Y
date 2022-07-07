@@ -10,12 +10,26 @@ form {
   gap: 50px;
 }
 img {
-  max-width: 500px;
-
-
+  max-width: 300px;
 }
 
 label {
   display: flex;
   flex-direction: column;
+}
+
+input {
+  border-radius: 5px;
+  border: 1px solid gray;
+  height: 25px;
+  width: 250%;
+}
+
+button {
+  width: 200px;
+  height: 30px;
+  background-color: rgb(73, 230, 25);
+  border-radius: 5px;
+  border: 1px solid rgb(0, 0, 0);
+  cursor: pointer;
 }
