@@ -26,7 +26,7 @@ img {
 .flex {
   display: flex;
   align-items: center;
-  font: 1.9em Ubuntu Mono, monospace;
+  font: 1.9em Ubuntu, monospace;
   color: rgb(255, 255, 255);
 }
   
