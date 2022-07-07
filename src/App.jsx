@@ -1,39 +1,54 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
 import logo from './assets/logo.png'
 
 import './App.css'
 
 function App() {
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+  function onSubmit(userata) {
+    console.log(userata);
+  }
+
   return (
-    <form>
-      <img src={logo} alt="logo" />
+    <div className="App">
+      <header className="App-header">
+      
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className='flex'>
+        <img src={logo} alt="logo" />
+        <p>Formulario IP4Y</p>
+      </div> 
 
       <label>
         Nome
-        <input type="text" />
+        <input {...register("name")} />
 
-        Cpf
-        <input type="text" />
+        CPF
+        <input {...register("CPF")} />
 
         E-Mail
-        <input type="text" />
+        <input {...register("email")} />
 
         Data de Nascimento
-        <input type="text" />
+        <input {...register("birthdate")} />
 
         Gênero
-        <input type="text" />
+        <input {...register("genre")} />
 
         Senha
-        <input type="text" />
+        <input {...register("password")} />
 
         Confirmar Senha
-        <input type="text" />
+        <input {...register("confirmpassword")} />
 
         <button type="submit">Cadastrar</button>
-        <button type="submit">Cancelar</button>
-      </label>
-    </form>
+
+          </label>
+        </form>
+      </header>
+    </div>
   )
 }
 
