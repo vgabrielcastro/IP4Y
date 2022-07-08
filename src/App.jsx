@@ -25,8 +25,6 @@ function App() {
     console.log(userata);
   }
 
-  console.log(errors);
-
   return (
     <div className="App">
       <header className="App-header">
@@ -39,20 +37,20 @@ function App() {
 
       <label>
         Nome
-        <input {...register("name", { required: true })} />
-        {errors.name && <span> O nome é obrigatório</span>}
+        <input type="text" placeholder=" Ex: Gabriel " {...register("name", { required: true })} />
+        <span>{ errors.name?.message }</span>
 
         CPF
-        <input {...register("cpf")} />
-        {errors.name && <span> O CPF é obrigatório</span>}
+        <input placeholder="Ex: 123.456.789-01 " maks="999.999.999-99" {...register("cpf")} />
+        <span> { errors.cpf?.message }</span>
 
         E-Mail
-        <input {...register("email")} />
-        {errors.name && <span> O e-mail é obrigatório</span>}
+        <input type="text" placeholder=" Ex: email@exemplo.com " {...register("email")} />
+        <span> { errors.email?.message }</span>
 
         Data de Nascimento
-        <input {...register("birthdate")} />
-        {errors.name && <span> A data de nascimento é obrigatória</span>}
+        <input placeholder='Ex: 99/99/9999'{...register("birthdate")} />
+        <span> { errors.birthdate?.message }</span>
             
         Gênero
           <select {...register("Gênero")}>
@@ -62,12 +60,12 @@ function App() {
           </select>
             
         Senha
-        <input {...register("password")} />
-        {errors.name && <span> A senha é obrigatória</span>}
+        <input type="password" {...register("password")} />
+        <span>{ errors.password?.message }</span>
             
         Confirmar Senha
-        <input {...register("confirmpassword")} />
-        {errors.name && <span> A confirmação de senha é obrigatória</span>}
+        <input type="password" {...register("confirmpassword")} />
+        <span>{ errors.confirmpassword?.message }</span>
             
         <button type="submit">Cadastrar</button>
         <button className="cancel"  type="Reset">Cancelar</button>
